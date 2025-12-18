@@ -1,0 +1,49 @@
+<div [ngClass]="cardGradient()"
+     class="relative w-full max-w-sm p-6 rounded-3xl shadow-xl bg-gradient-to-br transition-all duration-500 hover:scale-[1.02] border border-white/20 backdrop-blur-md overflow-hidden">
+
+  <!-- Decorative background circle -->
+  <div class="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+
+  <!-- Header Section -->
+  <div class="flex justify-between items-start text-white">
+    <div>
+      <h2 class="text-3xl font-bold tracking-tight drop-shadow-md">{{ city() }}</h2>
+      <p class="text-lg font-medium opacity-90">{{ condition() }}</p>
+    </div>
+    <div class="text-5xl drop-shadow-lg">
+      {{ weatherIcon() }}
+    </div>
+  </div>
+
+  <!-- Main Temperature -->
+  <div class="mt-8 flex items-baseline text-white">
+    <span class="text-7xl font-black tracking-tighter">{{ temperature() | number:'1.0-0' }}</span>
+    <span class="ml-2 text-2xl font-light opacity-80">°C</span>
+  </div>
+
+  <!-- Secondary Stats Grid -->
+  <div class="mt-8 grid grid-cols-2 gap-4 border-t border-white/20 pt-4 text-white/90">
+    <div class="flex items-center gap-3 bg-white/10 p-3 rounded-2xl">
+      <span class="text-xl">💧</span>
+      <div>
+        <p class="text-[10px] uppercase font-bold opacity-60 tracking-wider">Humidity</p>
+        <p class="font-semibold">{{ humidity() }}%</p>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-3 bg-white/10 p-3 rounded-2xl">
+      <span class="text-xl">💨</span>
+      <div>
+        <p class="text-[10px] uppercase font-bold opacity-60 tracking-wider">Wind</p>
+        <p class="font-semibold">{{ windSpeed() }} km/h</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Footer (Optional Exercise) -->
+  <div class="mt-4 flex justify-end">
+    <button class="text-[10px] font-bold text-white/70 hover:text-white uppercase tracking-widest transition-colors">
+      View Details →
+    </button>
+  </div>
+</div>
